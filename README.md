@@ -1,6 +1,6 @@
-#  Artelab SPA - Android Inventory App
+#  Artelab SPA
 
-> Aplicación nativa Android moderna para la gestión y catálogo de productos artísticos, desarrollada con Kotlin y Jetpack Compose.
+ Aplicación nativa Android moderna para la gestión y catálogo de productos artísticos, desarrollada con Kotlin y Jetpack Compose.
 
 ##  Sobre el Proyecto
 
