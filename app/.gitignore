@@ -1,0 +1,37 @@
+# Archivos y carpetas de Android Studio
+.idea/
+*.iml
+
+# Archivos generados automáticamente
+.gradle/
+local.properties
+/build/
+.externalNativeBuild/
+.cxx/
+
+# Archivos específicos del sistema
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.Spotlight-V100
+.Trashes
+
+# Archivos binarios y empaquetados
+*.apk
+*.aab
+*.aar
+*.ap_
+*.dex
+*.class
+
+# Archivos sensibles
+*.jks
+*.keystore
+*.pem
+*.p12
+*.key
+google-services.json
+
+# Otros
+captures/
+schemas/
