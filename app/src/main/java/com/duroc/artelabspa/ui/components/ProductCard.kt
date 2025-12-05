@@ -59,7 +59,7 @@ fun ProductCard(
 
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(File(producto.fotoUri))
+                    .data(producto.fotoUri)
                     .crossfade(true)
                     .build(),
                 contentDescription = "Foto de ${producto.nombre}",
