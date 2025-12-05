@@ -15,19 +15,19 @@ El proyecto destaca por su implementación de una arquitectura limpia (MVVM), pe
 ### 1. Navegación y Feed de Productos
 Interfaz moderna basada en Material Design 3 con navegación inferior y scroll infinito. La UI reacciona automáticamente a los cambios en la base de datos.
 
-![Demo del Feed y Navegación](screenshots/demo_feed.gif)
+<img src="screenshots/demo1.gif" width="300" alt="Demo Feed">
 *(Visualización del Home Screen, scroll de productos y barra de navegación)*
 
 ### 2. Creación de Productos con Cámara
 Formulario validado en tiempo real. Integración segura con la **Cámara** del dispositivo utilizando `FileProvider` para capturar imágenes de alta calidad.
 
-![Demo Crear con Cámara](screenshots/demo_create.gif)
+<img src="screenshots/demo2.gif" width="300" alt="Demo Cámara">
 *(Flujo de agregar un nuevo producto, validación de campos y uso de la cámara)*
 
 ### 3. Edición y Selector de Galería
 Reutilización del formulario para modo edición. Integración con el **Photo Picker** nativo de Android para seleccionar imágenes de la galería de forma segura y privada.
 
-![Demo Editar con Galería](screenshots/demo_edit.gif)
+<img src="screenshots/demo3.gif" width="300" alt="Demo Galería">
 *(Flujo de editar un producto existente y cambiar la foto desde la galería)*
 
 ---
