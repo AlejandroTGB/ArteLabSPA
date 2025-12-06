@@ -76,7 +76,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
 
-}
-tasks.withType<Test>().configureEach {
-    useJUnitPlatform()
+    tasks.withType<Test> {
+        testLogging {
+            events("passed", "skipped", "failed")
+            showStandardStreams = true
+        }
+    }
 }
