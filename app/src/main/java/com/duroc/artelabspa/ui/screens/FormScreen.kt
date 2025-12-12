@@ -148,7 +148,7 @@ fun FormScreen(
                 } else {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Icon(Icons.Default.CameraAlt, contentDescription = null, modifier = Modifier.size(48.dp))
-                        Text("Toca para foto")
+                        Text("Toca para agregar foto")
                     }
                 }
             }
