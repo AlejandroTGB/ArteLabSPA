@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import com.duroc.artelabspa.data.DatabaseProvider
 import com.duroc.artelabspa.repository.ProductoRepository
 import com.duroc.artelabspa.ui.AppNavigation
+import com.duroc.artelabspa.ui.theme.ArteLabSPATheme
 import com.duroc.artelabspa.viewmodel.FormViewModelFactory
 import com.duroc.artelabspa.viewmodel.HomeViewModelFactory
 
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
         val formViewModelFactory = FormViewModelFactory(repository)
 
         setContent {
-            MaterialTheme {
+            ArteLabSPATheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

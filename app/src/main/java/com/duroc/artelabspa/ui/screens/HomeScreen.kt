@@ -20,6 +20,10 @@ import androidx.navigation.NavController
 import com.duroc.artelabspa.ui.NavRoutes
 import com.duroc.artelabspa.ui.components.ProductCard
 import com.duroc.artelabspa.viewmodel.HomeViewModel
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.runtime.rememberCoroutineScope
+import kotlinx.coroutines.launch
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,6 +32,8 @@ fun HomeScreen(
     viewModel: HomeViewModel
 ) {
     val productos by viewModel.productos.collectAsState()
+    val listState = rememberLazyListState()
+    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         topBar = {
@@ -53,7 +59,9 @@ fun HomeScreen(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Inicio") },
                     label = { Text("Inicio") },
                     selected = true,
-                    onClick = { }
+                    onClick = {coroutineScope.launch {
+                        listState.animateScrollToItem(0)
+                    }}
                 )
                 NavigationBarItem(
                     icon = {
@@ -80,6 +88,7 @@ fun HomeScreen(
     ) { paddingValues ->
 
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
