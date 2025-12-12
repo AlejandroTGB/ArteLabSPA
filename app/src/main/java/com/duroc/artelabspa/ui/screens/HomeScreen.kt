@@ -36,6 +36,8 @@ fun HomeScreen(
     val productosFiltrados by viewModel.productosFiltrados.collectAsState()
     val searchText by viewModel.searchText.collectAsState()
     val isSearchActive by viewModel.isSearchActive.collectAsState()
+    val valorDolar by viewModel.valorDolar.collectAsState()
+
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
 
@@ -51,7 +53,8 @@ fun HomeScreen(
                         )
                     },
                     colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                     )
                 )
 
@@ -82,8 +85,7 @@ fun HomeScreen(
         },
         bottomBar = {
             NavigationBar(
-                containerColor = MaterialTheme.colorScheme.surface,
-                tonalElevation = 8.dp
+                containerColor = MaterialTheme.colorScheme.primaryContainer
             ) {
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Inicio") },
@@ -128,6 +130,7 @@ fun HomeScreen(
             items(productosFiltrados) { producto ->
                 ProductCard(
                     producto = producto,
+                    valorDolar = valorDolar,
                     onDeleteClick = { viewModel.eliminarProducto(producto) },
                     onEditClick = {
                         navController.navigate(NavRoutes.ADD_PRODUCT + "/${producto.id}")

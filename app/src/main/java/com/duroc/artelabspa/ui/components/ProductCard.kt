@@ -13,11 +13,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.duroc.artelabspa.model.Producto
-import java.io.File
 
 @Composable
 fun ProductCard(
     producto: Producto,
+    valorDolar: Double?,
     onDeleteClick: () -> Unit,
     onEditClick: () -> Unit
 ) {
@@ -25,7 +25,10 @@ fun ProductCard(
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer
+        )
     ) {
         Column {
             Row(
@@ -75,6 +78,14 @@ fun ProductCard(
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.primary
                 )
+                if (valorDolar != null){
+                    val precioUsd = producto.precio / valorDolar
+                    Text(
+                        text = "(Aprox. US$ ${String.format("%.2f", precioUsd)})",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = producto.descripcion,
