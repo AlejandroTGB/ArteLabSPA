@@ -9,12 +9,17 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
+    primaryContainer = Color(0xFF3A3A40),
+    onPrimaryContainer = Color(0xFFE8E8EA),
+    surface = Color(0xFF1C1B1F),
+    surfaceContainer = Color(0xFF2B2930)
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -37,7 +42,7 @@ private val LightColorScheme = lightColorScheme(
 fun ArteLabSPATheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
