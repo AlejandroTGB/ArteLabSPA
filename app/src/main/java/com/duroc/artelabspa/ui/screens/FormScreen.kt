@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.CameraAlt
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.*
@@ -48,6 +49,7 @@ fun FormScreen(
     val context = LocalContext.current
 
     var showImageSourceDialog by remember { mutableStateOf(false) }
+    var expandedCategoria by remember { mutableStateOf(false) }
 
     var tempCameraUri by remember { mutableStateOf<Uri?>(null) }
     var tempCameraFile by remember { mutableStateOf<File?>(null) }
@@ -167,6 +169,34 @@ fun FormScreen(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                 modifier = Modifier.fillMaxWidth()
             )
+
+            ExposedDropdownMenuBox(
+                expanded = expandedCategoria,
+                onExpandedChange = { expandedCategoria = !expandedCategoria }
+            ) {
+                OutlinedTextField(
+                    value = state.categoria,
+                    onValueChange = {},
+                    readOnly = true,
+                    label = { Text("Categoría") },
+                    trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedCategoria) },
+                    modifier = Modifier.fillMaxWidth().menuAnchor()
+                )
+                ExposedDropdownMenu(
+                    expanded = expandedCategoria,
+                    onDismissRequest = { expandedCategoria = false }
+                ) {
+                    listOf("Arte", "Pintura", "Escultura", "Dibujo", "Fotografía", "Material", "Cuadro", "Kit", "Otro").forEach { categoria ->
+                        DropdownMenuItem(
+                            text = { Text(categoria) },
+                            onClick = {
+                                viewModel.onCategoryChange(categoria)
+                                expandedCategoria = false
+                            }
+                        )
+                    }
+                }
+            }
 
             OutlinedTextField(
                 value = state.descripcion,

@@ -53,6 +53,10 @@ class FormViewModel(
         _state.update { it.copy(descripcion = text) }
     }
 
+    fun onCategoryChange(text: String) {
+        _state.update { it.copy(categoria = text) }
+    }
+
     fun onPhotoChange(newUri: String) {
         _state.update { it.copy(fotoUri = newUri) }
     }
